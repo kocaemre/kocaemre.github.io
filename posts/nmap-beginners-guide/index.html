@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started with Nmap: A Beginner&#39;s Guide | Emre Koca Blog</title>
+  <link rel="stylesheet" href="https://kocaemre.github.io/assets/css/post.css" />
+  <script defer src="https://kocaemre.github.io/assets/js/lbox.js"></script>
+  
+  <link rel="stylesheet" href="https://kocaemre.github.io/assets/css/common.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+  <a class="site-title" href="https://kocaemre.github.io/">Emre Koca Blog</a>
+</header>
+
+      <section class="article">
+        <div class="article-header">
+          <h2 class="article-title">Getting Started with Nmap: A Beginner&#39;s Guide</h2>
+          <small class="date">Sat Mar 25, 2023</small>
+          <div class="tags">
+            
+            <a href="https://kocaemre.github.io/tags/beginner" class="tag">beginner</a>
+            
+            <a href="https://kocaemre.github.io/tags/nmap" class="tag">nmap</a>
+            
+            <a href="https://kocaemre.github.io/tags/html" class="tag">html</a>
+            
+          </div>
+        </div>
+        <div class="content"><h2 id="nmap">Nmap</h2>
+<p>Nmap (Network Mapper) is a powerful network scanning tool that can be used for a variety of purposes such as network inventory, vulnerability scanning, and network mapping. In this article, we&rsquo;ll take a closer look at how to use Nmap and explore its different features.</p>
+<h2 id="installation">Installation</h2>
+<p>The first step is to install Nmap on your system. Nmap is available for different operating systems such as Windows, Linux, and macOS. You can download the latest version of Nmap from the official website or install it using your operating system&rsquo;s package manager.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>To start using Nmap, open a terminal window and type the following command:</p>
+<p><code>nmap &lt;target&gt;</code></p>
+<p>Replace <code>&lt;target&gt;</code> with the IP address or hostname of the device you want to scan. Nmap will send different types of probes to the target device and report back the results.</p>
+<p>For example, if you want to scan a device with the IP address 192.168.1.1, type the following command:</p>
+<p><code>nmap 192.168.1.1</code></p>
+<p>Nmap will show a summary of the scan results, including the open ports, operating system, and other information about the target device.</p>
+<h3 id="port-scanning">Port Scanning</h3>
+<p>One of the main features of Nmap is port scanning. Port scanning is the process of scanning a target device&rsquo;s open ports to determine which services are running and which ports are open. Nmap offers different types of port scanning techniques such as TCP connect scan, SYN scan, and UDP scan.</p>
+<p>To perform a TCP connect scan, use the <code>-sT</code> option with the <code>nmap</code> command:</p>
+<p><code>nmap -sT &lt;target&gt;</code></p>
+<p>This will perform a TCP connect scan on the target device and report back the results.</p>
+<h3 id="service-and-version-detection">Service and Version Detection</h3>
+<p>Another useful feature of Nmap is service and version detection. Nmap can determine the version and type of services running on a target device by analyzing the response packets sent by the device.</p>
+<p>To perform service and version detection, use the <code>-sV</code> option with the <code>nmap</code> command:</p>
+<p><code>nmap -sV &lt;target&gt;</code></p>
+<p>This will perform a scan and show the version and type of services running on the target device.</p>
+<h3 id="vulnerability-scanning">Vulnerability Scanning</h3>
+<p>Nmap can also be used for vulnerability scanning. Vulnerability scanning is the process of scanning a target device for known vulnerabilities and security issues. Nmap can perform vulnerability scanning using different scripts such as <code>vulscan</code> and <code>vulners</code>.</p>
+<p>To perform vulnerability scanning using the <code>vulscan</code> script, use the following command:</p>
+<p><code>nmap --script vulscan/vulscan.nse &lt;target&gt;</code></p>
+<p>This will perform a vulnerability scan on the target device and report back the results.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Nmap is a powerful tool that can be used for a variety of purposes such as network inventory, vulnerability scanning, and network mapping. In this article, we&rsquo;ve covered the basics of Nmap and explored some of its different features. With Nmap, you can gain valuable insights into your network and improve its security posture.</p>
+</div>
+      </section>
+      <footer>
+  <p>&copy; 1947 - 2023 </p>
+</footer>
+    </main>
+  </body>
+</html>

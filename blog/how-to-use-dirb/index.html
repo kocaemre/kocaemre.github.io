@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to use dirb | Emre Koca Blog</title>
+  <link rel="stylesheet" href="https://kocaemre.github.io/assets/css/post.css" />
+  <script defer src="https://kocaemre.github.io/assets/js/lbox.js"></script>
+  
+  <link rel="stylesheet" href="https://kocaemre.github.io/assets/css/common.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+  <a class="site-title" href="https://kocaemre.github.io/">Emre Koca Blog</a>
+</header>
+
+      <section class="article">
+        <div class="article-header">
+          <h2 class="article-title">How to use dirb</h2>
+          <small class="date">Sat Mar 25, 2023</small>
+          <div class="tags">
+            
+            <a href="https://kocaemre.github.io/tags/dirb" class="tag">dirb</a>
+            
+            <a href="https://kocaemre.github.io/tags/beginner" class="tag">beginner</a>
+            
+            <a href="https://kocaemre.github.io/tags/know%20how" class="tag">know how</a>
+            
+          </div>
+        </div>
+        <div class="content"><p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
+<h3 id="introduction">Introduction:</h3>
+<p>Dirb is a popular command-line tool for web application security testing. It is designed to help security researchers and penetration testers discover hidden directories and files on web servers. In this blog post, we will explore the basics of Dirb and how it can be used to identify vulnerabilities in web applications.</p>
+<h3 id="what-is-dirb">What is Dirb?</h3>
+<p>Dirb is a tool that performs a dictionary-based search for hidden web directories and files. It works by sending HTTP requests to a target web server and analyzing the response codes to determine whether a directory or file exists. Dirb is capable of using various wordlists, which are essentially lists of common directory and file names, to perform its search.</p>
+<p>Dirb is a popular tool among security researchers and penetration testers because it can quickly and efficiently identify hidden directories and files that could potentially be used to exploit vulnerabilities in a web application. By identifying these directories and files, security researchers can determine whether a web application is vulnerable to attacks such as directory traversal, SQL injection, and remote code execution.</p>
+<h3 id="using-dirb">Using Dirb:</h3>
+<p>To use Dirb, you first need to download and install it on your system. Dirb is available for download from its official website or can be installed using package managers such as apt-get or yum. Once installed, you can start using Dirb by running the following command:</p>
+<p><code>dirb http://target_website.com -o output_file.txt</code></p>
+<p>This command will initiate a dictionary-based search for hidden directories and files on the target website and save the results to a text file named output_file.txt. By default, Dirb uses its built-in wordlist to perform its search. However, you can specify your own wordlist using the -w option.</p>
+<p>Dirb also allows you to specify the number of threads to use for the search using the -t option. The default number of threads is 10, but you can increase or decrease this value depending on your system&rsquo;s resources and the target website&rsquo;s responsiveness.</p>
+<h3 id="conclusion">Conclusion:</h3>
+<p>Dirb is a powerful tool for web application security testing that can quickly and efficiently identify hidden directories and files on web servers. By using Dirb, security researchers and penetration testers can identify vulnerabilities in web applications and take necessary measures to mitigate them. However, it is important to note that Dirb should be used responsibly and only on systems that you have permission to test.</p></div>
+      </section>
+      <footer>
+  <p>&copy; 1947 - 2023 </p>
+</footer>
+    </main>
+  </body>
+</html>

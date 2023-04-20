@@ -17,10 +17,13 @@
     <loc>https://kocaemre.github.io/categories/</loc>
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kocaemre.github.io/tags/dirb/</loc>
+    <loc>https://kocaemre.github.io/tags/ctf/</loc>
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kocaemre.github.io/posts/yeni-icerik/</loc>
+    <loc>https://kocaemre.github.io/categories/ctf/</loc>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kocaemre.github.io/tags/dirb/</loc>
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kocaemre.github.io/blog/nmap-beginners-guide/</loc>
@@ -41,9 +44,6 @@
     <loc>https://kocaemre.github.io/tags/know-how/</loc>
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kocaemre.github.io/tags/nasasa/</loc>
-    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://kocaemre.github.io/tags/nmap/</loc>
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -60,6 +60,15 @@
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kocaemre.github.io/categories/themes/</loc>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kocaemre.github.io/tags/tryhackme/</loc>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kocaemre.github.io/categories/tryhackme/</loc>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kocaemre.github.io/posts/pickle-rick-ctf/</loc>
     <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kocaemre.github.io/tags/css/</loc>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRYHACKME - PICKLE RICK | Emre Koca Blog</title>
+  <link rel="stylesheet" href="https://kocaemre.github.io/assets/css/post.css" />
+  <script defer src="https://kocaemre.github.io/assets/js/lbox.js"></script>
+  
+  <link rel="stylesheet" href="https://kocaemre.github.io/assets/css/common.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+  <a class="site-title" href="https://kocaemre.github.io/">Emre Koca Blog</a>
+</header>
+
+      <section class="article">
+        <div class="article-header">
+          <h2 class="article-title">TRYHACKME - PICKLE RICK</h2>
+          <small class="date">Sat Mar 25, 2023</small>
+          <div class="tags">
+            
+            <a href="https://kocaemre.github.io/tags/beginner" class="tag">beginner</a>
+            
+            <a href="https://kocaemre.github.io/tags/CTF" class="tag">CTF</a>
+            
+            <a href="https://kocaemre.github.io/tags/TryHackMe" class="tag">TryHackMe</a>
+            
+          </div>
+        </div>
+        <div class="content"><h5 id="herkese-selamlar-bu-yazımızda-sizlerle-pickle-rickhttpstryhackmecomroompicklerick-pickle-rick-ctf-çözümü-yapacağız">Herkese selamlar! Bu yazımızda sizlerle <a href="https://tryhackme.com/room/picklerick" title="Pickle Rick">Pickle Rick</a> CTF çözümü yapacağız.</h5>
+<h5 id="nmap-sorgusu-yaparak-başlayalımben-aşağıdaki-parametrelerle-taramamı-yaptım">Nmap sorgusu yaparak başlayalım.Ben aşağıdaki parametrelerle taramamı yaptım:</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>┌──<span style="color:#f92672">(</span>kali㉿kali<span style="color:#f92672">)</span>-<span style="color:#f92672">[</span>~<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>└─$ nmap -sT -sV -Pn -A 10.10.129.50    
+</span></span><span style="display:flex;"><span>Starting Nmap 7.93 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2023-04-20 15:18 EDT
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> 10.10.129.50
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.088s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">998</span> closed tcp ports <span style="color:#f92672">(</span>conn-refused<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>PORT   STATE SERVICE VERSION
+</span></span><span style="display:flex;"><span>22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span>|   <span style="color:#ae81ff">2048</span> e3460931f3046ded397e6d9ebfff5385 <span style="color:#f92672">(</span>RSA<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>|   <span style="color:#ae81ff">256</span> c487dd6cfa7c4c7c2181bae6bc6fa8f6 <span style="color:#f92672">(</span>ECDSA<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>|_  <span style="color:#ae81ff">256</span> 31c512ffbe9ab288ee0a912827d9a485 <span style="color:#f92672">(</span>ED25519<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>80/tcp open  http    Apache httpd 2.4.18 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>|_http-title: Rick is sup4r cool
+</span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.18 <span style="color:#f92672">(</span>Ubuntu<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style="display:flex;"><span>Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 13.20 seconds
+</span></span></code></pre></div><ul>
+<li>
+<p>-sT: TCP SYN tarama yöntemini kullanarak açık portları belirler. Bu tarama yöntemi, hedef sistemdeki açık portların hızlı bir şekilde tespit edilmesini sağlar.</p>
+</li>
+<li>
+<p>-sV: Açık portlar tespit edildikten sonra, bu seçenek hedef sistemde çalışan servislerin sürüm bilgisini tespit etmek için kullanılır.</p>
+</li>
+<li>
+<p>-Pn: Bu seçenek, hedef sistemle iletişim kurarken ICMP ping istekleri göndermeyi engeller. Bu sayede, hedef sistemin firewall veya diğer güvenlik önlemleri tarafından engellenmesi riski azaltılır.</p>
+</li>
+<li>
+<p>-A: Bu seçenek, hedef sistemin işletim sistemi türü, uygulama türü, ağ topolojisi ve diğer detayları gibi çeşitli bilgileri toplamak için kullanılır.</p>
+</li>
+</ul>
+<h5 id="22-portta-ssh80-portta-http-servislerimizin-açık-oldupunu-görüyoruz">22. Portta SSH,80. Portta http servislerimizin açık oldupunu görüyoruz.</h5>
+<h4 id="daha-çok-veri-elde-etmek-adına-niktodizin-keşfi-için-gobuster-kullanacağız">Daha çok veri elde etmek adına nikto,dizin keşfi için gobuster kullanacağız.</h4>
+<h5 id="gobuster-ile-yaptığım-taratma-sonucunda-assets-dizinini-buldum">Gobuster ile yaptığım taratma sonucunda <code>/assets</code> dizinini buldum.</h5>
+<h5 id="nikto-ile-yaptığım-taratma-sonucunda-loginphp-dizinini-buldum">Nikto ile yaptığım taratma sonucunda <code>/login.php</code> dizinini buldum.</h5>
+<h4 id="artık-siteye-göz-atabiliriz">Artık siteye göz atabiliriz.</h4>
+<p><a href="https://github.com/kocaemre/kocaemre.github.io/blob/main/images/pr1.png?raw=true" title="Site içeriği"><img src="https://github.com/kocaemre/kocaemre.github.io/blob/main/images/pr1.png?raw=true" alt="Site içeriği" title="Site içeriği"></a></p>
+<h5 id="tıklanabilecek-veya-etkileşime-girebileceğimiz-bir-yer-bulamadım">Tıklanabilecek veya etkileşime girebileceğimiz bir yer bulamadım.</h5>
+<h5 id="sağ-tık-yaparak-sayfayı-kaynağını-inceleyelim">Sağ tık yaparak sayfayı kaynağını inceleyelim.</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">title</span>&gt;Rick is sup4r cool&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;assets/bootstrap.min.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;assets/jquery.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;assets/bootstrap.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">jumbotron</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;assets/rickandmorty.jpeg&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-size</span>: <span style="color:#66d9ef">cover</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">340</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jumbotron&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Help Morty!&lt;/<span style="color:#f92672">h1</span>&gt;&lt;/<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;Listen Morty... I need your help, I&#39;ve turned myself into a pickle again and this time I can&#39;t change back!&lt;/<span style="color:#f92672">p</span>&gt;&lt;/<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;I need you to &lt;<span style="color:#f92672">b</span>&gt;*BURRRP*&lt;/<span style="color:#f92672">b</span>&gt;....Morty, logon to my computer and find the last three secret ingredients to finish my pickle-reverse potion. The only problem is,
+</span></span><span style="display:flex;"><span>    I have no idea what the &lt;<span style="color:#f92672">b</span>&gt;*BURRRRRRRRP*&lt;/<span style="color:#f92672">b</span>&gt;, password was! Help Morty, Help!&lt;/<span style="color:#f92672">p</span>&gt;&lt;/<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!--
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Note to self, remember username!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Username: &lt;username&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h5 id="kullanıcı-adını-bulduk-ama-tryhackme-kuralları-gereği-önemli-bilgileri-sansürlemem-gerekiyor">Kullanıcı adını bulduk ama TryHackMe kuralları gereği önemli bilgileri sansürlemem gerekiyor.</h5>
+<h5 id="sitelerde-araştırmamın-en-başında-robotstxt-dizinine-girerim-size-de-öneririm">Sitelerde araştırmamın en başında <code>/robots.txt</code> dizinine girerim. Size de öneririm.</h5>
+<h5 id="robotstxt-dizininde-şifre-olabileğini-düşündüğüm-bir-yazı-buldum"><code>/robots.txt</code> dizininde şifre olabileğini düşündüğüm bir yazı buldum.</h5>
+<h5 id="başta-hatırlarsanız-loginphp-dizinini-bulduğumu-söylemiştimmuhtemelen-admin-panelioraya-elde-ettiğimiz-bu-bilgilerle-girmeyi-deneyelim">Başta hatırlarsanız <code>/login.php</code> dizinini bulduğumu söylemiştim.Muhtemelen admin paneli.Oraya elde ettiğimiz bu bilgilerle girmeyi deneyelim.</h5>
+<p><a href="http://https://github.com/kocaemre/kocaemre.github.io/blob/main/images/pr2.png?raw=true"><img src="https://github.com/kocaemre/kocaemre.github.io/blob/main/images/pr2.png?raw=true" alt=""></a></p>
+<h6 id="ve-içerdeyiz-">Ve içerdeyiz :)</h6>
+<h5 id="ilk-başta-aklımıza-linux-komut-istemi-olabileceği-geliyorls-komutunu-denediğimde-bulunduğum-klasördeki-dosyaları-gösteriyor">İlk başta aklımıza linux komut istemi olabileceği geliyor.<code>ls</code> komutunu denediğimde bulunduğum klasördeki dosyaları gösteriyor.</h5>
+<h4 id="bu-noktada-yapabileceğimiz-birkaç-farklı-yöntem-varben-reverse-shell-almaya-çalışacağım">Bu noktada yapabileceğimiz birkaç farklı yöntem var.Ben reverse shell almaya çalışacağım.</h4>
+<h5 id="bu-sitedenhttpswwwrevshellscom-bu-siteden-birkaç-deneme-yaparak-bize-uygun-bir-komut-buluyorumperl"><a href="https://www.revshells.com/" title="Bu siteden">Bu siteden</a> birkaç deneme yaparak bize uygun bir komut buluyorum.(Perl)</h5>
+<h5 id="kendi-bilgisayarımda-nc--lvnp-1234--komutunu-çalıştırıyorum-ve-cevap-geliyor">Kendi bilgisayarımda <code>nc -lvnp 1234 </code> komutunu çalıştırıyorum ve cevap geliyor:</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nc -lvnp <span style="color:#ae81ff">1234</span>        
+</span></span><span style="display:flex;"><span>listening on <span style="color:#f92672">[</span>any<span style="color:#f92672">]</span> <span style="color:#ae81ff">1234</span> ...
+</span></span><span style="display:flex;"><span>connect to <span style="color:#f92672">[</span>10.8.87.226<span style="color:#f92672">]</span> from <span style="color:#f92672">(</span>UNKNOWN<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>10.10.129.50<span style="color:#f92672">]</span> <span style="color:#ae81ff">38076</span>
+</span></span><span style="display:flex;"><span>sh: 0: can<span style="color:#960050;background-color:#1e0010">&#39;</span>t access tty; job control turned off
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>Sup3rS3cretPickl3Ingred.txt
+</span></span><span style="display:flex;"><span>assets
+</span></span><span style="display:flex;"><span>clue.txt
+</span></span><span style="display:flex;"><span>denied.php
+</span></span><span style="display:flex;"><span>index.html
+</span></span><span style="display:flex;"><span>login.php
+</span></span><span style="display:flex;"><span>portal.php
+</span></span><span style="display:flex;"><span>robots.txt
+</span></span></code></pre></div><h5 id="cat-sup3rs3cretpickl3ingredtxt-komutu-ile-içeriğine-bakıyorumiçeriğinde-1-sorumuzun-cevabı-var"><code>cat Sup3rS3cretPickl3Ingred.txt</code> komutu ile içeriğine bakıyorum.İçeriğinde 1. sorumuzun cevabı var.</h5>
+<h5 id="aynı-şekilde-cluetxt-dosyasının-da-içine-bakıyorum-içeriğinde-look-around-the-file-system-for-the-other-ingredient-yazıyor-yani-başka-yerlere-de-bakmamızı-istiyor">Aynı şekilde clue.txt dosyasının da içine bakıyorum. İçeriğinde &ldquo;Look around the file system for the other ingredient.&rdquo; yazıyor. Yani başka yerlere de bakmamızı istiyor.</h5>
+<h5 id="biraz-araştırdıktan-sonra-homerickin-içinde-second-ingredients-olduğunu-görüyoruz-2-sorumuzun-cevabı-da-bu-dosyanın-içerisinde-cat-komutu-ile-dosyanın-içeriğini-okuyoruz">Biraz araştırdıktan sonra <code>/home/rick</code>&lsquo;in içinde <code>second ingredients</code> olduğunu görüyoruz. 2. sorumuzun cevabı da bu dosyanın içerisinde. cat komutu ile dosyanın içeriğini okuyoruz.</h5>
+<h5 id="sudo--l-komutu-yaparak-root-olarak-çalıştırabileceğimiz-uygulamaları-görüyoruz"><code>sudo -l</code> komutu yaparak root olarak çalıştırabileceğimiz uygulamaları görüyoruz.</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo -l
+</span></span><span style="display:flex;"><span>Matching Defaults entries <span style="color:#66d9ef">for</span> www-data on
+</span></span><span style="display:flex;"><span>    ip-10-10-129-50.eu-west-1.compute.internal:
+</span></span><span style="display:flex;"><span>    env_reset, mail_badpass,
+</span></span><span style="display:flex;"><span>    secure_path<span style="color:#f92672">=</span>/usr/local/sbin<span style="color:#ae81ff">\:</span>/usr/local/bin<span style="color:#ae81ff">\:</span>/usr/sbin<span style="color:#ae81ff">\:</span>/usr/bin<span style="color:#ae81ff">\:</span>/sbin<span style="color:#ae81ff">\:</span>/bin<span style="color:#ae81ff">\:</span>/snap/bin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>User www-data may run the following commands on
+</span></span><span style="display:flex;"><span>        ip-10-10-129-50.eu-west-1.compute.internal:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: ALL
+</span></span></code></pre></div><h4 id="herhangi-bir-şeyi-root-olarak-çalıştırabiliriz">Herhangi bir şeyi root olarak çalıştırabiliriz!</h4>
+<h5 id="root-dizinine-sudo-yetkisi-ile-girebiliriz3-sorumuzun-cevabı-burada-olabilir"><code>/root</code> dizinine sudo yetkisi ile girebiliriz.3. sorumuzun cevabı burada olabilir.</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo ls /root
+</span></span><span style="display:flex;"><span>3rd.txt
+</span></span><span style="display:flex;"><span>snap
+</span></span></code></pre></div><h4 id="root-klasörünün-içinde-3rdtxt-adında-bir-dosya-görüyoruz-3-sorumuzun-da-cevabı-burada"><code>/root</code> klasörünün içinde 3rd.txt adında bir dosya görüyoruz. 3. sorumuzun da cevabı burada.</h4>
+<h3 id="yazımı-okuğunuz-için-teşekkür-ederimbir-sonraki-ctf-çözümünde-görüşmek-üzere">Yazımı okuğunuz için teşekkür ederim.Bir sonraki CTF çözümünde görüşmek üzere.</h3>
+</div>
+      </section>
+      <footer>
+  <p>&copy; 1947 - 2023 </p>
+</footer>
+    </main>
+  </body>
+</html>

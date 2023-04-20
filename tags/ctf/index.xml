@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on Emre Koca Blog</title>
+    <link>https://kocaemre.github.io/tags/ctf/</link>
+    <description>Recent content in CTF on Emre Koca Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://kocaemre.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TRYHACKME - PICKLE RICK</title>
+      <link>https://kocaemre.github.io/posts/pickle-rick-ctf/</link>
+      <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://kocaemre.github.io/posts/pickle-rick-ctf/</guid>
+      <description>Herkese selamlar! Bu yazımızda sizlerle Pickle Rick CTF çözümü yapacağız. Nmap sorgusu yaparak başlayalım.Ben aşağıdaki parametrelerle taramamı yaptım: ┌──(kali㉿kali)-[~] └─$ nmap -sT -sV -Pn -A 10.10.129.50 Starting Nmap 7.93 ( https://nmap.org ) at 2023-04-20 15:18 EDT Nmap scan report for 10.10.129.50 Host is up (0.088s latency). Not shown: 998 closed tcp ports (conn-refused) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 2048 e3460931f3046ded397e6d9ebfff5385 (RSA) | 256 c487dd6cfa7c4c7c2181bae6bc6fa8f6 (ECDSA) |_ 256 31c512ffbe9ab288ee0a912827d9a485 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+  </channel>
+</rss>

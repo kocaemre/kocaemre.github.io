@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>CTF</title>
+      <link>https://kocaemre.github.io/categories/ctf/</link>
+      <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://kocaemre.github.io/categories/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>sguide</title>
       <link>https://kocaemre.github.io/categories/sguide/</link>
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
@@ -40,6 +49,15 @@
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://kocaemre.github.io/categories/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TryHackMe</title>
+      <link>https://kocaemre.github.io/categories/tryhackme/</link>
+      <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://kocaemre.github.io/categories/tryhackme/</guid>
       <description></description>
     </item>
     
